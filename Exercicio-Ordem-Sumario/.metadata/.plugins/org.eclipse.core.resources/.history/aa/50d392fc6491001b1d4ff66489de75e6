@@ -1,0 +1,78 @@
+package entities;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import entities.enums.OrderStatus;
+
+public class Order {
+	SimpleDateFormat sdfOrder = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	
+	private Date moment;
+	private OrderStatus status;
+	List<OrderItem> items = new ArrayList();
+	private Client client;
+	
+	public Order() {
+	}
+
+	public Date getMoment() {
+		return moment;
+	}
+
+	public Order(Date moment, OrderStatus status, Client client) {
+		super();
+		this.moment = moment;
+		this.status = status;
+		this.client = client;
+	}
+
+	public void setMoment(Date moment) {
+		this.moment = moment;
+	}
+
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+	public Order(Date moment, OrderStatus status) {
+		this.moment = moment;
+		this.status = status;
+	}
+	
+	public void addItem(OrderItem item) {
+		items.add(item);
+	}
+	
+	public void removeItem(OrderItem item) {
+		items.remove(item);
+	}
+	
+	public double total() {
+		Double total = 0.0;
+		for (OrderItem i : items) {
+			total = total + i.subTotal();
+		}
+		
+		return total;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Order moment: " + sdfOrder.format(moment) + "/n");
+		sb.append("Order Status: " + status);
+		sb.append("Client: " + client);
+		for (OrderItem it : items) {
+			sb.append(it);
+		}
+		sb.append("Total price: $" + total());
+		return sb.toString();
+	}
+	
+}

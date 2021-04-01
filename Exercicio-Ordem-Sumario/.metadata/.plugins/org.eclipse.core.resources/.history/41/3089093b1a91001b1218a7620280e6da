@@ -1,0 +1,27 @@
+package application;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Client;
+
+public class Program {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		System.out.println("Enter client data:");
+		System.out.print("Name: ");
+		String name = sc.nextLine();
+		System.out.print("Email: ");
+		String email = sc.nextLine();
+		Date birthday = sdf.parse(sc.next());
+		Client client = new Client(name, email, )
+		
+	}
+
+}

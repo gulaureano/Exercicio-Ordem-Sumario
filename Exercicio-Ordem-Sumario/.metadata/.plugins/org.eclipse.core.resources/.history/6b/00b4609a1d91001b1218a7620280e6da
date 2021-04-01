@@ -1,0 +1,32 @@
+package application;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Client;
+import entities.enums.OrderStatus;
+
+public class Program {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		System.out.println("Enter client data:");
+		System.out.print("Name: ");
+		String name = sc.nextLine();
+		System.out.print("Email: ");
+		String email = sc.nextLine();
+		Date birthday = sdf.parse(sc.next());
+		Client client = new Client(name, email, birthday);
+		System.out.println("Enter order data:");
+		System.out.print("Status: ");
+		OrderStatus status = sc.nextLine();
+		
+	}
+
+}

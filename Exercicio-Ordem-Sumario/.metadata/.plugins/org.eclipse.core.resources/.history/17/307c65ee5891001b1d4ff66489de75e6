@@ -1,0 +1,68 @@
+package application;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Client;
+import entities.Order;
+import entities.OrderItem;
+import entities.Product;
+import entities.enums.OrderStatus;
+
+public class Program {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdfOrder = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
+		
+		System.out.println("Enter client data: ");
+		System.out.print("Name: ");
+		String name = sc.nextLine();
+		System.out.print("Email: ");
+		String email = sc.nextLine();
+		System.out.print("Birth day: ");
+		Date birthday = sdf.parse(sc.nextLine());
+		sdf.format(birthday);
+		Client client = new Client(name, email, birthday);
+		Order order = new Order(client);
+		
+		
+		System.out.println("Enter order data:");
+		System.out.print("Status: ");
+		OrderStatus status = OrderStatus.valueOf(sc.nextLine());
+		System.out.print("How many items to this order?");
+		int n = sc.nextInt();
+		
+		for(int i=1;i<=n;i++) {
+			System.out.printf("Enter #%d item data: %n", n);
+			System.out.print("Product name: ");
+			sc.nextLine();
+			String nameP = sc.nextLine();
+			System.out.print("Product price: ");
+			Double price = sc.nextDouble();
+			Product p = new Product(nameP, price);
+			System.out.print("Quantity: ");
+			Integer quantityP = sc.nextInt();
+			OrderItem oi1 = new OrderItem(quantityP, price, p);
+			
+		}
+		
+		System.out.println("ORDER SUMMARY");
+		System.out.print("Order moment: ");
+		sdfOrder.format(order.getMoment());
+		System.out.print("Order Status: ");
+		order.getStatus();
+		System.out.print("Client: " + client);
+		System.out.println("Order items");
+		for(int m=0;order.)
+		
+		
+	}
+
+}

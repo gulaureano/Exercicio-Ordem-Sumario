@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\GustavoProjetc\Java Completo\10 - Enumerações e Composição\Exercicio-Ordem-Sumario\.metadata\.plugins\org.eclipse.jdt.core
+1497378174.index
+1749451499.index

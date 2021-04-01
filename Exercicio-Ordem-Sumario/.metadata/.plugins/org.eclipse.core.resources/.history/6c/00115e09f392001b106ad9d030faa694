@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package entities.enums;
+
+/**
+ * @author gusta
+ *
+ */
+public enum OrderStatus {
+
+}
